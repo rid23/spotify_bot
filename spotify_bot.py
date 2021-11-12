@@ -77,7 +77,8 @@ class spotify:
         try:
             solved = solve2(url)
             #print(solved)
-            self.driver.execute_script(f'document.getElementById("g-recaptcha-response").textContent="{solved}";')
+            #self.driver.execute_script(f'document.getElementById("g-recaptcha-response").textContent="{solved}";')
+            self.driver.execute_script(f"___grecaptcha_cfg.clients[0].U.U.callback('{solved}');")
         except:
             pass
         sleep(1)
